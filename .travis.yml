@@ -1,3 +1,10 @@
 language: node_js
 node_js:
 - '0.10'
+deploy:
+  provider: heroku
+  api_key:
+    secure: XWX9FLjjOOhTQ36A6MB84NwzJ71ocw8Q6mnrGsV0/7gKRgz2THDWXsm9F5BDHB3vOGaqHiIqYUZFmuYqZUkHPgSfroU2Lcb8Sq+TG/5DSaivk31kfnGAUF7608CCdh5TabCyfcfmd/1Y773UeLihUb/RDkwLS+p6JYzpXXzWYjs=
+  app: afternoon-wildwood-3862
+  on:
+    repo: pgremo/wallet
