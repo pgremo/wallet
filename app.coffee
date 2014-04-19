@@ -19,7 +19,7 @@ app.use require('coffee-middleware')
   compress: true
 
 if process.env.DEBUG
-  app.use express.errorHandler()
+  app.use require('errorhandler')()
 
 router = express.Router()
 router.route '/'

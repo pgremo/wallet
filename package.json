@@ -2,9 +2,21 @@
   "name": "wallet",
   "version": "0.0.1",
   "private": true,
-  "scripts": {
+  "description": "simple wallet viewer for EVE Online",
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "Patrick Gremo",
+      "email": "patrick.gremo@gmail.com"
+    }
+  ],"scripts": {
     "start": "coffee app.coffee"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pgremo/wallet"
+  },
+  "main": "app.coffee",
   "dependencies": {
     "express": "~4.0",
     "jade": "~1.3",
@@ -14,7 +26,8 @@
     "static-favicon": "^1.0.2",
     "morgan": "^1.0.0",
     "body-parser": "^1.0.2",
-    "method-override": "^1.0.0"
+    "method-override": "^1.0.0",
+    "errorhandler": "^1.0.0"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
@@ -23,5 +36,8 @@
     "request": "~2.34",
     "time-grunt": "~0.3",
     "load-grunt-tasks": "~0.4"
+  },
+  "engines": {
+    "node": "0.10.x"
   }
 }
