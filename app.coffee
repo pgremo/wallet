@@ -3,32 +3,31 @@ routes = require './routes'
 user = require './routes/user'
 http = require 'http'
 path = require 'path'
-coffeeMiddleware = require 'coffee-middleware'
+
+port = process.env.PORT or 3000
 
 app = express()
+app.set 'views', path.join __dirname, 'views'
+app.set 'view engine', 'jade'
+app.use require('static-favicon') path.join __dirname, 'public/img/favicon.ico'
+app.use require('morgan') 'dev'
+app.use require('body-parser')()
+app.use require('method-override')()
+app.use express.static path.join __dirname, 'public'
+app.use require('coffee-middleware')
+  src: path.join __dirname, 'public'
+  compress: true
 
-app.configure () ->
-  app.set 'port', process.env.PORT || 3000
-  app.set 'views', path.join __dirname, 'views'
-  app.set 'view engine', 'jade'
-  app.use express.favicon()
-  app.use express.logger 'dev'
-  app.use express.bodyParser()
-  app.use express.methodOverride()
-  app.use app.router
-  app.use express.static path.join __dirname, 'public'
-  app.use coffeeMiddleware
-    src: path.join __dirname, 'public'
-    compress: true
-
-
-app.configure 'development', () ->
+if process.env.DEBUG
   app.use express.errorHandler()
 
-app.get '/', routes.index
-app.get '/users', user.list
+router = express.Router()
+router.route '/'
+  .get routes.index
+router.route '/users'
+  .get user.list
 
-http
-  .createServer app
-  .listen app.get('port'), () ->
-    console.log "Express server listening on port #{app.get 'port'}"
+app.use '/', router
+
+app.listen port, () ->
+    console.log "Express server listening on port #{port}"
