@@ -1,6 +1,6 @@
 express = require 'express'
 routes = require './routes'
-user = require './routes/user'
+lookup = require './routes/lookup'
 http = require 'http'
 path = require 'path'
 
@@ -24,8 +24,8 @@ if process.env.DEBUG
 router = express.Router()
 router.route '/'
   .get routes.index
-router.route '/users'
-  .get user.list
+router.route '/:keyID/:vCode/:characterID'
+  .get lookup.lookup
 
 app.use '/', router
 

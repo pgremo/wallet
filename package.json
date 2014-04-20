@@ -9,7 +9,8 @@
       "name": "Patrick Gremo",
       "email": "patrick.gremo@gmail.com"
     }
-  ],"scripts": {
+  ],
+  "scripts": {
     "start": "coffee app.coffee"
   },
   "repository": {
@@ -27,7 +28,8 @@
     "morgan": "^1.0.0",
     "body-parser": "^1.0.2",
     "method-override": "^1.0.0",
-    "errorhandler": "^1.0.0"
+    "errorhandler": "^1.0.0",
+    "es6-shim": "^0.10.1"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
