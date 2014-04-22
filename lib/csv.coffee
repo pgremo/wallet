@@ -1,22 +1,12 @@
 format = (x) ->
   if /[",]|(\r\n)/.test(x)
-    return '"' + x.replace(/"/, '""') + '"'
+    '"' + x.replace(/"/, '""') + '"'
   else
-    return x
+    x
 
 module.exports = (columns, data) ->
-  result = ''
-  for column in columns
-    if result isnt ''
-      result = result + ','
-    result = result + format(column)
-  result = result + '\r\n'
-  for row in data
-    line = ''
-    for column in columns
-      if line isnt ''
-        line = line + ','
-      line = line + format(row[column])
-    line = line + '\r\n'
-    result = result + line
-  result
+  result = (for column in columns
+    format column).join() + '\r\n'
+  result + (for row in data
+    (for column in columns
+      format row[column]).join()).join '\r\n'

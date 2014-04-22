@@ -8,13 +8,13 @@ load = (props) ->
   return new Promise (resolve, reject) ->
     entries = []
     recur = (props) ->
-      client.fetch 'char:WalletJournal', props
+      client.fetch 'corp:WalletJournal', props
         .then (result) ->
-          values = for key, value of result.transactions
+          values = for key, value of result.entries
             value
           entries.push values...
           if values.length is props.rowCount
-            props.fromID = Math.min (parseInt(key) for key of result.transactions)...
+            props.fromID = Math.min (parseInt(key) for key of result.entries)...
             recur props
           else
             resolve entries
@@ -27,7 +27,7 @@ exports.lookup = (req, res) ->
       keyID: req.params.keyID
       vCode: req.params.vCode
       characterID: req.params.characterID
-      rowCount: 25
+      rowCount: 2560
       fromID: null
     .then (result) ->
       columns = for key of result[0]
