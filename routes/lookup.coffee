@@ -1,22 +1,23 @@
 require 'es6-shim'
 neow = require 'neow'
+toCSV = require '../lib/csv'
 
 client = new neow.EveClient()
 
 load = (props) ->
   return new Promise (resolve, reject) ->
-    xs = []
+    entries = []
     recur = (props) ->
       client.fetch 'char:WalletJournal', props
         .then (result) ->
-          entries = for key, value of result.transactions
+          values = for key, value of result.transactions
             value
-          Array.prototype.push.apply xs, entries
-          if entries.length is props.rowCount
-            props.fromID = Math.min.apply null, (parseInt(key) for key of result.transactions)
+          entries.push values...
+          if values.length is props.rowCount
+            props.fromID = Math.min (parseInt(key) for key of result.transactions)...
             recur props
           else
-            resolve xs
+            resolve entries
         .catch (err) ->
           reject err
     recur props
@@ -29,7 +30,9 @@ exports.lookup = (req, res) ->
       rowCount: 25
       fromID: null
     .then (result) ->
-      res.render 'lookup',
-        title: 'Express'
-        entries: result
+      columns = for key of result[0]
+        key
+      res.send toCSV(columns, result)
+    .catch (err) ->
+      console err
 
