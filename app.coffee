@@ -24,7 +24,7 @@ if process.env.DEBUG
 router = express.Router()
 router.route '/'
   .get routes.index
-router.route '/:keyID/:vCode/:characterID'
+router.route '/:keyID/:vCode/:characterID/:accountKey?'
   .get lookup.lookup
 
 app.use '/', router

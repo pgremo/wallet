@@ -3,4 +3,6 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
-  p Please use a URL of the format https://host:port/:keyID/:vCode/:characterID
+  p Please use a URL of the format https://host:port/:keyID/:vCode/:characterID/:accountKey
+  p characterID must have the Accountant or Junior Accountant role
+  p accountKey is the corp wallet id (defaults: 1000)
