@@ -29,7 +29,6 @@ exports.lookup = (req, res) ->
       characterID: req.params.characterID
       accountKey: if req.params.accountKey? then req.params.accountKey else '1000'
       rowCount: 2560
-      fromID: null
     .then (result) ->
       columns = for key of result[0]
         key
