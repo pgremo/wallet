@@ -8,3 +8,9 @@ deploy:
   app: afternoon-wildwood-3862
   on:
     repo: pgremo/wallet
+
+before_install:
+  - npm install -g gulp
+
+script:
+  - gulp build --require coffee-script/register

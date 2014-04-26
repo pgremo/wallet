@@ -44,7 +44,7 @@ module.exports = (grunt) ->
   grunt.registerTask 'delayed-livereload', 'Live reload after the node server has restarted.', () ->
     done = this.async()
     setTimeout () ->
-      request.get "http://localhost:#{reloadPort}/changed?files=#{files.join(',')}",  (err, res) ->
+      request.get "http://localhost:#{reloadPort}/changed?files=#{files.join ','}",  (err, res) ->
           reloaded = !err && res.statusCode is 200
           if reloaded
             grunt.log.ok 'Delayed live reload successful.'
