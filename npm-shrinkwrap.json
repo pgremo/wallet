@@ -32,6 +32,28 @@
         }
       }
     },
+    "chai": {
+      "version": "1.9.1",
+      "from": "chai@",
+      "dependencies": {
+        "assertion-error": {
+          "version": "1.0.0",
+          "from": "assertion-error@1.0.0",
+          "resolved": "https://registry.npmjs.org/assertion-error/-/assertion-error-1.0.0.tgz"
+        },
+        "deep-eql": {
+          "version": "0.1.3",
+          "from": "deep-eql@0.1.3",
+          "dependencies": {
+            "type-detect": {
+              "version": "0.1.1",
+              "from": "type-detect@0.1.1",
+              "resolved": "https://registry.npmjs.org/type-detect/-/type-detect-0.1.1.tgz"
+            }
+          }
+        }
+      }
+    },
     "coffee-middleware": {
       "version": "0.2.1",
       "from": "coffee-middleware@^0.2.1",
