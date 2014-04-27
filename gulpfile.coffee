@@ -2,6 +2,7 @@ gulp = require 'gulp'
 coffeelint = require 'gulp-coffeelint'
 livereload = require 'gulp-livereload'
 nodemon = require 'gulp-nodemon'
+mocha = require 'gulp-mocha'
 _ = require 'lodash'
 
 paths =
@@ -10,14 +11,21 @@ paths =
       'routes/*.coffee',
       'lib/*.coffee'
     ],
+  test: 'test/**/*.coffee'
   coffee: 'public/js/*.coffee'
   css: 'public/css/*.css'
   jade: 'views/*.jade'
 
 gulp.task 'lint', ->
-  gulp.src _.flatten [paths.coffee, paths.server, 'gulpfile.coffee']
+  gulp
+    .src _.flatten [paths.coffee, paths.server, paths.test, 'gulpfile.coffee']
     .pipe coffeelint()
     .pipe coffeelint.reporter()
+
+gulp.task 'test', ->
+  gulp
+    .src paths.test
+    .pipe mocha reporter: 'spec'
 
 gulp.task 'server', ->
   nodemon script: './app.coffee'
@@ -39,7 +47,6 @@ gulp.task 'watch', ['server'], ->
     setTimeout -> server.changed file.path
       , 500
 
-gulp.task 'default', ['lint', 'watch'], ->
-  undefined
+gulp.task 'default', ['watch']
 
-gulp.task 'build', ['lint']
+gulp.task 'build', ['lint', 'test']
