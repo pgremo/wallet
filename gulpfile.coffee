@@ -9,7 +9,8 @@ paths =
   server: [
       'app.coffee',
       'routes/*.coffee',
-      'lib/*.coffee'
+      'lib/*.coffee',
+      'data/*.coffee'
     ],
   test: 'test/**/*.coffee'
   coffee: 'public/js/*.coffee'

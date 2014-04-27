@@ -54,6 +54,11 @@
         }
       }
     },
+    "chai-as-promised": {
+      "version": "4.1.1",
+      "from": "chai-as-promised@",
+      "resolved": "https://registry.npmjs.org/chai-as-promised/-/chai-as-promised-4.1.1.tgz"
+    },
     "coffee-middleware": {
       "version": "0.2.1",
       "from": "coffee-middleware@^0.2.1",
@@ -1754,7 +1759,7 @@
     },
     "lodash": {
       "version": "2.4.1",
-      "from": "lodash@^2.4.1"
+      "from": "lodash@2.4.1"
     },
     "method-override": {
       "version": "1.0.0",
@@ -1849,6 +1854,45 @@
           }
         }
       }
+    },
+    "proxyquire": {
+      "version": "0.6.0",
+      "from": "proxyquire@",
+      "resolved": "https://registry.npmjs.org/proxyquire/-/proxyquire-0.6.0.tgz"
+    },
+    "sinon": {
+      "version": "1.9.1",
+      "from": "sinon@",
+      "resolved": "https://registry.npmjs.org/sinon/-/sinon-1.9.1.tgz",
+      "dependencies": {
+        "formatio": {
+          "version": "1.0.2",
+          "from": "formatio@~1.0",
+          "resolved": "https://registry.npmjs.org/formatio/-/formatio-1.0.2.tgz",
+          "dependencies": {
+            "samsam": {
+              "version": "1.1.1",
+              "from": "samsam@~1.1",
+              "resolved": "https://registry.npmjs.org/samsam/-/samsam-1.1.1.tgz"
+            }
+          }
+        },
+        "util": {
+          "version": "0.10.3",
+          "from": "util@>=0.10.3 <1",
+          "dependencies": {
+            "inherits": {
+              "version": "2.0.1",
+              "from": "inherits@2.0.1"
+            }
+          }
+        }
+      }
+    },
+    "sinon-chai": {
+      "version": "2.5.0",
+      "from": "sinon-chai@",
+      "resolved": "https://registry.npmjs.org/sinon-chai/-/sinon-chai-2.5.0.tgz"
     },
     "static-favicon": {
       "version": "1.0.2",

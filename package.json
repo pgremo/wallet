@@ -29,7 +29,8 @@
     "body-parser": "^1.0.2",
     "method-override": "^1.0.0",
     "errorhandler": "^1.0.0",
-    "es6-shim": "^0.10.1"
+    "es6-shim": "^0.10.1",
+    "lodash": "^2.4.1"
   },
   "devDependencies": {
     "gulp": "^3.6.2",
@@ -38,7 +39,11 @@
     "lodash": "^2.4.1",
     "gulp-nodemon": "^1.0.2",
     "gulp-mocha": "^0.4.1",
-    "chai": "^1.9.1"
+    "chai": "^1.9.1",
+    "proxyquire": "^0.6.0",
+    "sinon": "^1.9.1",
+    "sinon-chai": "^2.5.0",
+    "chai-as-promised": "^4.1.1"
   },
   "engines": {
     "node": "0.10.x"
